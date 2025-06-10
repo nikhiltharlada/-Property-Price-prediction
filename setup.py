@@ -1,24 +1,19 @@
-from setuptools import setup,find_packages
+from setuptools import find_packages,setup
 from typing import List
-error_d="-e ."
-def get_requirements(file_path:str)->List[str]:
+e_dot="-e ."
+def get_requirement(file_path:str)->List[str]:
     requirements=[]
     with open(file_path) as file:
         requirements=file.readlines()
-        requirements=[req.replace('\n',"") for req in requirements]
-        if error_d in requirements:
-            requirements.remove(error_d)
+        requirements=[req.replace("\n","") for req in requirements]
+        if e_dot in requirements:
+            requirements.remove(e_dot)
     return requirements
-
-
-
-
-
 setup(
-    name='property price prediction',
+    name='mlproject',
     version='0.0.1',
     author='Nikhil',
     author_email='nikhiltharlada310@gmail.com',
     packages=find_packages(),
-    install_requires=get_requirements('requirements.txt')
+    install_requires=get_requirement('requirement.txt')
 )
